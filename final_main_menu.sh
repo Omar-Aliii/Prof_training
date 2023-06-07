@@ -29,9 +29,20 @@ remove_table_script() {
 
 # exit the script
 exit_script() {
-    echo -e "Leaving...\xF0\x9F\x98\xA2"
-    
-    exit 0
+    read -p "Are you sure you want to exit? (Y/N): " choice
+    case $choice in
+        [Yy])
+            echo -e "Leaving...\xF0\x9F\x98\xA2"
+            exit 0
+            ;;
+        [Nn])
+            main_menu
+            ;;
+        *)
+            echo "Invalid choice. Please enter Y or N."
+            confirm_exit
+            ;;
+    esac
 }
 
 
