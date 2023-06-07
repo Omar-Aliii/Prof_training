@@ -1,16 +1,42 @@
-#!binbash
+#!/bin/bash
 
+# Script to remove a file
+
+# Function to validate and remove a file
 remove_file() {
-    echo Enter the path to the file you want to remove
-    read file_path
+    local file_path
 
-    if [ ! -f $file_path ]; then
-        echo Error File '$file_path' not found.
-        return
+    read -p "Enter the path to the file you want to remove: " file_path
+
+    # Check if the file exists
+    if [ -f "$file_path" ]; then
+        rm "$file_path"
+        echo "File '$file_path' removed successfully."
+    else
+        echo "Error: File '$file_path' not found."
+	remove_file
     fi
-
-    rm $file_path
-    echo File '$file_path' removed successfully.
 }
 
-remove_file
+# Function to confirm file removal
+confirm_removal() {
+    local confirmation
+
+    read -p "Are you sure you want to remove the file? (Y/N): " confirmation
+
+    case $confirmation in
+        [Yy])
+            remove_file
+            ;;
+        [Nn])
+            echo "File removal canceled."
+            ;;
+        *)
+            echo "Invalid choice. File removal canceled."
+            ;;
+    esac
+}
+
+# Call the confirm_removal function to start the file removal process
+confirm_removal
+
