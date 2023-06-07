@@ -21,7 +21,7 @@ fill_table() {
   if [ "$choice" = "Y" ] || [ "$choice" = "y" ]; then
      continue
   else
-     break
+     return 0
      fi
   
   while true; do
