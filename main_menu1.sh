@@ -34,7 +34,9 @@ exit_script() {
 }
 
 
-
+clear
+echo "Welcome to Database Management System"
+echo "----------------------------------------"
 
 
 
