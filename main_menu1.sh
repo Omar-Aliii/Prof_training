@@ -43,8 +43,8 @@ exit_script() {
 main_menu() {
     
     echo "Main Menu"
-    
-  echo "To CREATE DATABASE choose number : 1"
+    echo "----------------------------------------"
+    echo "To CREATE DATABASE choose number : 1"
     echo "To CREATE TABLE choose number : 2"
     echo "To MODIFAY TABLE choose number : 3"
     echo "To SHOW TABLE choose number : 4"
@@ -59,7 +59,7 @@ main_menu() {
         4) show_table_script ;;        # Call show_table_script function
         5) remove_table_script ;;      # Call remove_table_script function
         6) exit_script ;;              # Call exit_script function
-        *) echo "Invalid option " ;;
+        *) echo "Invalid option , Please try again and select number from 1 -> 6." ;;
     esac
 
     main_menu  # Recursive call to display the main menu again
