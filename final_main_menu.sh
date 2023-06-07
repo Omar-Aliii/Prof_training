@@ -40,6 +40,15 @@ exit_script() {
 clear
 echo "Welcome to Database Management System"
 echo "----------------------------------------"
+echo "this project is done by:"
+echo "Abdelrahman Saleh"
+echo "Ahmed Hazem"
+echo "Aly Mahmoud"
+echo "Mayada Gamal"
+echo "Moamen Ahmed"
+echo "Omar Ali"
+echo "Omar Osama"
+echo "Youssef Waleed"
 
 
 # Function for the main menu
@@ -48,7 +57,7 @@ main_menu() {
     echo "Main Menu"
     echo "----------------------------------------"
     echo "To CREATE DATABASE choose number : 1"
-    echo "To CREATE TABLE choose number : 2"
+    echo "To CREATE or append to a TABLE choose number : 2"
     echo "To MODIFAY TABLE choose number : 3"
     echo "To SHOW TABLE choose number : 4"
     echo "To REMOVE TABLE choose number : 5"
@@ -70,4 +79,3 @@ main_menu() {
 
 # Call the main_menu function to start the script
 main_menu
-
