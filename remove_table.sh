@@ -10,11 +10,11 @@ remove_file() {
 
     # Check if the file exists
     if [ -f "$file_path" ]; then
-        rm "$file_path"
+        rm "$file_path"  # Remove the file
         echo "File '$file_path' removed successfully."
     else
         echo "Error: File '$file_path' not found."
-	remove_file
+        remove_file # Prompt for file path again
     fi
 }
 
@@ -26,7 +26,7 @@ confirm_removal() {
 
     case $confirmation in
         [Yy])
-            remove_file
+            remove_file # Proceed with file removal
             ;;
         [Nn])
             echo "File removal canceled."
@@ -40,3 +40,4 @@ confirm_removal() {
 # Call the confirm_removal function to start the file removal process
 confirm_removal
 
+# End of the script
