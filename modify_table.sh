@@ -84,3 +84,53 @@ add_row() {
   echo "New row added successfully!"
   echo
 }
+
+# Function to manually edit the file using nano editor
+manual_edit() {
+  echo "Manually editing the file. Press Enter to continue..."
+  read
+  nano "$file_path"
+  echo "File edited successfully!"
+  echo
+}
+
+# Main script
+
+echo "Enter the path to the text file:"
+read file_path
+
+while true; do
+  display_menu
+
+  read -p "Option: " option
+  echo
+
+  case $option in
+    1)
+      edit_column
+      ;;
+    2)
+      remove_column
+      ;;
+    3)
+      edit_row
+      ;;
+    4)
+      remove_rows
+      ;;
+    5)
+      add_row
+      ;;
+    6)
+      manual_edit
+      ;;
+    7)
+      echo "Exiting..."
+      break
+      ;;
+    *)
+      echo "Invalid option. Please try again."
+      echo
+      ;;
+  esac
+done
