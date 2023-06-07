@@ -43,3 +43,44 @@ remove_column() {
   echo "Column $column_number removed successfully!"
   echo
 }
+}
+
+# Function to edit a specific row
+edit_row() {
+  echo "Enter the row number to edit:"
+  read row_number
+
+  echo "Enter the replacement value (tab-separated columns):"
+  read -a replacement_values
+
+  # Use awk to edit the specific row in the file
+  awk -v row="$row_number" -v vals="${replacement_values[*]}" 'BEGIN{FS=OFS="\t"} {if (NR==row) {split(vals, a, "\t"); for(i=1; i<=NF; i++) $i=a[i];} print}' "$file_path" > temp.txt
+  mv temp.txt "$file_path"
+
+  echo "Row $row_number edited successfully!"
+  echo
+}
+
+# Function to remove specific rows
+remove_rows() {
+  echo "Enter the row numbers to remove (comma-separated):"
+  read row_numbers
+
+  # Use sed to remove the specific rows from the file
+  sed -i "$(echo "$row_numbers" | sed 's/,/d;/g')d" "$file_path"
+
+  echo "Rows $row_numbers removed successfully!"
+  echo
+}
+
+# Function to add a new row
+add_row() {
+  echo "Enter the values for the new row (tab-separated columns):"
+  read -a new_row_values
+
+  # Append the new row to the file
+  echo "${new_row_values[*]}" >> "$file_path"
+
+  echo "New row added successfully!"
+  echo
+}
