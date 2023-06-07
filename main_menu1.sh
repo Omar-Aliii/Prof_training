@@ -22,7 +22,16 @@ show_table_script() {
     source ./show_table.sh
 }
 
+# execute the remove_table.sh script
+remove_table_script() {
+    source ./remove_table.sh
+}
 
+# exit the script
+exit_script() {
+    echo "Exit"
+    exit 0
+}
 
 
 
@@ -39,8 +48,8 @@ main_menu() {
     echo "CREATE TABLE  : 2"
     echo " MODIFAY TABLE  : 3"
     echo " SHOW TABLE  : 4"
-    
-   
+    echo " REMOVE TABLE  : 5"
+    echo " EXIT : 6"
     read -p "choose any option: " number
 
     case $number in
@@ -48,8 +57,8 @@ main_menu() {
         2) create_table_script ;;      # Call create_table_script function
         3) modify_table_script ;;      # Call modify_table_script function
         4) show_table_script ;;        # Call show_table_script function
-       
-       
+        5) remove_table_script ;;      # Call remove_table_script function
+        6) exit_script ;;              # Call exit_script function
         *) echo "Invalid " ;;
     esac
 
