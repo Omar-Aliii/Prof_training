@@ -44,13 +44,13 @@ main_menu() {
     
     echo "Main Menu"
     
-    echo "CREATE DATABASE  : 1"
-    echo "CREATE TABLE  : 2"
-    echo " MODIFAY TABLE  : 3"
-    echo " SHOW TABLE  : 4"
-    echo " REMOVE TABLE  : 5"
-    echo " EXIT : 6"
-    read -p "choose any option: " number
+  echo "To CREATE DATABASE choose number : 1"
+    echo "To CREATE TABLE choose number : 2"
+    echo "To MODIFAY TABLE choose number : 3"
+    echo "To SHOW TABLE choose number : 4"
+    echo "To REMOVE TABLE choose number : 5"
+    echo "To EXIT from main menu choose number : 6"
+    read -p "Enter what you want to do : " number
 
     case $number in
         1) create_database_script ;;   # Call create_database_script function
@@ -59,7 +59,7 @@ main_menu() {
         4) show_table_script ;;        # Call show_table_script function
         5) remove_table_script ;;      # Call remove_table_script function
         6) exit_script ;;              # Call exit_script function
-        *) echo "Invalid " ;;
+        *) echo "Invalid option " ;;
     esac
 
     main_menu  # Recursive call to display the main menu again
